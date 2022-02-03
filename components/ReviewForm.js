@@ -29,7 +29,7 @@ app.component('review-form', {
     },
     method:{
         onSubmit(){
-            let productReview={
+            let productReview = {
                 name: this.name,
                 review: this.review,
                 rating: this.rating
