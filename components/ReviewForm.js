@@ -18,21 +18,34 @@ app.component('review-form', {
             <option>1</option>
         </select>
 
+        <label for="question">Would you recommend this product?</label>
+        <select id="question" v-model.number="question">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
         <input class="button" type="submit" value="Submit">
     </form>`,
     data(){
         return{
             name: '',
             review: '',
-            rating: null
+            rating: null,
+            question: null
         }
     },
-    method:{
+    methods:{
         onSubmit(){
+            if(this.name == '' || this.review == '' || this.rating === null){
+                alert('fill all inputs')
+                return
+            }
+
             let productReview = {
                 name: this.name,
                 review: this.review,
-                rating: this.rating
+                rating: this.rating,
+                question: this.question
             }
 
             this.$emit('review-submitted', productReview)
@@ -40,6 +53,7 @@ app.component('review-form', {
             this.name = ''
             this.review = ''
             this.rating = null
+            this.question = null
         }
     }
 })
