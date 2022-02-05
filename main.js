@@ -1,3 +1,4 @@
+
 const app = Vue.createApp({
     data() {
         return {
@@ -14,11 +15,15 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        addToCart() {
-            this.cart += 1
+        addToCart(){
+            this.cart++
         },
-        updateImage(variantImage) {
+        updateImage(variantImage){
             this.image = variantImage
+        },
+        removeFromCart(){
+            if(this.cart != 0)
+                this.cart--
         }
     }
 })
