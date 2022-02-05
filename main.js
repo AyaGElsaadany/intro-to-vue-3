@@ -1,3 +1,4 @@
+
 const app = Vue.createApp({
     data() {
         return {
@@ -14,11 +15,12 @@ const app = Vue.createApp({
         }
     },
     methods: {
-        addToCart() {
-            this.cart += 1
+        addToCart(){
+            this.cart++
         },
         updateVarient(index){
             this.selectedVariant = index
+
         }
     },
     computed: {
